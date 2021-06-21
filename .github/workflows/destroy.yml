@@ -23,8 +23,8 @@ jobs:
         
     - name: Set environment variables
       run: |
-        echo "::set-env name=ROLE_ID::$ROLE_ID"
-        echo "::set-env name=SECRET_ID::$SECRET_ID"
+        echo "ROLE_ID=$ROLE_ID" >> $GITHUB_ENV
+        echo "SECRET_ID=$SECRET_ID" >> $GITHUB_ENV
     # Import secrets from Vault
     - name: Import Secrets
       uses: hashicorp/vault-action@v1.0.1
@@ -36,8 +36,9 @@ jobs:
         secretId: ${{ env.SECRET_ID }}
         exportEnv: false
         secrets: |
-          aws access_key | AWS_ACCESS_KEY_ID ;
-          aws secret_key | AWS_SECRET_ACCESS_KEY
+          secret/aws access_key | AWS_ACCESS_KEY_ID ;
+          secret/aws secret_key | AWS_SECRET_ACCESS_KEY
+          secret/github/eksctlDeployKey pat | PAT_FOR_DEPLOY_KEY
     # Authenticate with AWS
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
