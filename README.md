@@ -1,4 +1,4 @@
-# Cakely API Ops
+# API Ops
 > EKS cluster, ECR repository, and Flux management for `Rubiooo/api`
 
 ## About
