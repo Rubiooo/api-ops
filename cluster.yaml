@@ -5,8 +5,8 @@ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: cakely
-  region: eu-west-1
+  name: test
+  region: ca-central-1
 
 nodeGroups:
   - name: ng-1
@@ -15,11 +15,11 @@ nodeGroups:
 
 git:
   repo:
-    url: "git@github.com:cakely/api-ops.git"
+    url: "git@github.com:Rubiooo/api-ops.git"
     branch: master
     fluxPath: "flux/"
-    user: "imjohnbo"
-    email: "imjohnbo@github.com"
+    user: "Rubiooo"
+    email: "maplerubiooo@github.com"
   operator:
     namespace: "flux"
     withHelm: false
