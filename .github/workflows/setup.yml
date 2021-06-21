@@ -38,7 +38,7 @@ jobs:
         secrets: |
           aws access_key | AWS_ACCESS_KEY_ID ;
           aws secret_key | AWS_SECRET_ACCESS_KEY ;
-          kv/secret/github/eksctlDeployKey pat | PAT_FOR_DEPLOY_KEY
+          kv/secret/data/github/eksctlDeployKey pat | PAT_FOR_DEPLOY_KEY
     # Authenticate with AWS
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
