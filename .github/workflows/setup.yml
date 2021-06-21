@@ -30,7 +30,7 @@ jobs:
       uses: hashicorp/vault-action@v1.0.1
       id: secrets
       with:
-        url: 'http://vault.nuucode.com:8200/:8200'    # Address of running Vault instance
+        url: 'http://vault.nuucode.com:8200'    # Address of running Vault instance
         method: approle
         roleId: ${{ env.ROLE_ID }}
         secretId: ${{ env.SECRET_ID }}
