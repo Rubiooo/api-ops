@@ -22,9 +22,9 @@ jobs:
         
     - name: Set environment variables
       run: |
-        echo "::set-env name=ROLE_ID::$ROLE_ID"
-        echo "::set-env name=SECRET_ID::$SECRET_ID"
-      
+        echo "ROLE_ID=$ROLE_ID" >> $GITHUB_ENV
+        echo "SECRET_ID=$SECRET_ID" >> $GITHUB_ENV
+    
     # Import secrets from Vault
     - name: Import Secrets
       uses: hashicorp/vault-action@v1.0.1
