@@ -27,17 +27,17 @@ jobs:
         echo "SECRET_ID=$SECRET_ID" >> $GITHUB_ENV
     # Import secrets from Vault
     - name: Import Secrets
-      uses: hashicorp/vault-action@v1.0.1
+      uses: hashicorp/vault-action@v2.2.0
       id: secrets
       with:
-        url: 'http://vault.nuucode.com:8200/'    # Address of running Vault instance
+        url: 'http://vault.nuucode.com:8200'    # Address of running Vault instance
         method: approle
         roleId: ${{ env.ROLE_ID }}
         secretId: ${{ env.SECRET_ID }}
         exportEnv: false
         secrets: |
           secret/aws access_key | AWS_ACCESS_KEY_ID ;
-          secret/aws secret_key | AWS_SECRET_ACCESS_KEY
+          secret/aws secret_key | AWS_SECRET_ACCESS_KEY;
           secret/github/eksctlDeployKey pat | PAT_FOR_DEPLOY_KEY
     # Authenticate with AWS
     - name: Configure AWS credentials
